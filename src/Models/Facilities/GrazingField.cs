@@ -1,16 +1,15 @@
 using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 using Trestlebridge.Interfaces;
 
-
 namespace Trestlebridge.Models.Facilities {
-    public class GrazingField : IFacility<IGrazing>
-    {
-        private int _capacity = 50;
-        private Guid _id = Guid.NewGuid();
+    public class GrazingField : IFacility<IGrazing> {
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        private int _capacity = 50;
+        private Guid _id = Guid.NewGuid ();
+
+        private List<IGrazing> _animals = new List<IGrazing> ();
 
         public double Capacity {
             get {
@@ -18,27 +17,26 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (IGrazing animal)
-        {
+        public void AddResource (IGrazing animal) {
             // TODO: implement this...
-            throw new NotImplementedException();
+            // still in development 
+            throw new NotImplementedException ();
         }
 
-        public void AddResource (List<IGrazing> animals) 
-        {
+        public void AddResource (List<IGrazing> animals) {
             // TODO: implement this...
-            throw new NotImplementedException();
+            // still in development
+            throw new NotImplementedException ();
         }
 
-        public override string ToString()
-        {
-            StringBuilder output = new StringBuilder();
+        public override string ToString () {
+            StringBuilder output = new StringBuilder ();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            output.Append ($"Grazing field {shortId} has {this._animals.Count} animals\n");
+            this._animals.ForEach (a => output.Append ($"   {a}\n"));
 
-            return output.ToString();
+            return output.ToString ();
         }
     }
 }
