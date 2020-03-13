@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Trestlebridge.Actions;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities {
     public class GrazingField : IFacility<IGrazing> {
 
-        private int _capacity = 50;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid ();
 
         private List<IGrazing> _animals = new List<IGrazing> ();
@@ -18,14 +19,21 @@ namespace Trestlebridge.Models.Facilities {
         }
 
         public void AddResource (IGrazing animal) {
-            // TODO: implement this...
-            // still in development 
-            throw new NotImplementedException ();
+            // maybe use a while loop
+            if (_animals.Count < Capacity) {
+                _animals.Add (animal);
+                Console.WriteLine ("You added your animal!");
+
+            } else {
+                Console.WriteLine ("Select another facility");
+                // ChooseGrazingField.CollectInput (animal);
+            }
+            // adding cow to a grazing field 
+            // throw new NotImplementedException ();
         }
 
         public void AddResource (List<IGrazing> animals) {
-            // TODO: implement this...
-            // still in development
+
             throw new NotImplementedException ();
         }
 
