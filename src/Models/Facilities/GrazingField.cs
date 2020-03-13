@@ -8,7 +8,7 @@ using Trestlebridge.Models.Facilities;
 namespace Trestlebridge.Models.Facilities {
     public class GrazingField : IFacility<IGrazing> {
 
-        private int _capacity = 1;
+        private int _capacity = 4;
         private Guid _id = Guid.NewGuid ();
 
         private List<IGrazing> _animals = new List<IGrazing> ();
@@ -33,17 +33,18 @@ namespace Trestlebridge.Models.Facilities {
                 }
 
             }
-            // adding cow to a grazing field 
-            // throw new NotImplementedException ();
+
         }
 
         public void AddResource (List<IGrazing> animals) {
 
-            throw new NotImplementedException ();
+            animals = _animals;
+
         }
 
         public override string ToString () {
             StringBuilder output = new StringBuilder ();
+            // appends before converting to string to make it run faster
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
             output.Append ($"Grazing field {shortId} has {this._animals.Count} animals\n");
