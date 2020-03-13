@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
       {
         case 1:
           // make an action ChooseNaturalField or ChoosePlowField
-          ChooseGrazingField.CollectInput(farm, new Sesame());
+          // ChooseGrazingField.CollectInput(farm, new Sesame());
           break;
         default:
           break;
