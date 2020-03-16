@@ -9,24 +9,15 @@ namespace Trestlebridge.Actions
 {
     public class ChooseGrazingField
     {
-        public static void CollectInput(Farm farm, IGrazing animal)
+        public static void CollectInput(Farm farm, IResource animal)
         {
             // Utils.Clear ();
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            foreach (var field in farm.GrazingFields)
             {
-                //Ternary / if else
-                Console.WriteLine($"{i + 1}. Grazing Field has the following animals:");
-                foreach (var field in farm.GrazingFields)
-                {
-                    var groups = field._animals.GroupBy(animal => animal.Type);
-                    foreach (var individualAnimal in groups)
-                    {
-                        Console.WriteLine($"{individualAnimal.Count()} {individualAnimal.Key} ");
-                    }
-                }
-            }
+                Console.WriteLine($"{farm.GrazingFields.IndexOf(field) + 1}. {field}");
 
+            }
             Console.WriteLine();
 
             // How can I output the type of animal chosen here?

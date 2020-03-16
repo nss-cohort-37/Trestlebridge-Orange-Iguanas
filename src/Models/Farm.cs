@@ -9,11 +9,11 @@ namespace Trestlebridge.Models
   public class Farm
   {
     // has property of a List of type grazing field called GrazingFields 
-    public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-    public List<PlowingField> PlowingFields { get; } = new List<PlowingField>();
-    public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
-    public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
-    public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
+    public List<IFacility<IResource>> GrazingFields { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> PlowingFields { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> NaturalFields { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> ChickenHouses { get; } = new List<IFacility<IResource>>();
+    public List<IFacility<IResource>> DuckHouses { get; } = new List<IFacility<IResource>>();
 
     /*
         This method must specify the correct product interface of the
@@ -25,7 +25,7 @@ namespace Trestlebridge.Models
       switch (typeof(T).ToString())
       {
         case "Cow":
-          GrazingFields[index].AddResource((IGrazing)resource);
+          GrazingFields[index].AddResource((IResource)resource);
           break;
         default:
           break;

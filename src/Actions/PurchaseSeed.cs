@@ -25,6 +25,13 @@ namespace Trestlebridge.Actions
         case 1:
           ChoosePlowingField.CollectInput(farm, new Sesame());
           break;
+        case 2:
+          ChooseNaturalField.CollectInput(farm, new Wildflower());
+          break;
+        case 3:
+          //create new method. ChoosePlowedOrNatural
+          ChoosePlowingOrNatural.CollectInput(farm, new Sunflower());
+          break;
         default:
           break;
       }

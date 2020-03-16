@@ -7,13 +7,13 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class DuckHouse : IFacility<IFeeding>
+  public class DuckHouse : IFacility<IResource>
   {
 
     private int _capacity = 2;
     private Guid _id = Guid.NewGuid();
 
-    public List<IFeeding> _animals = new List<IFeeding>();
+    public List<IResource> _animals = new List<IResource>();
 
     public double Capacity
     {
@@ -23,7 +23,7 @@ namespace Trestlebridge.Models.Facilities
       }
     }
 
-    public void AddResource(IFeeding animal)
+    public void AddResource(IResource animal)
     {
       // maybe use a while loop
       while (true)
@@ -45,7 +45,7 @@ namespace Trestlebridge.Models.Facilities
 
     }
 
-    public void AddResource(List<IFeeding> animals)
+    public void AddResource(List<IResource> animals)
     {
 
       _animals = animals;

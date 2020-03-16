@@ -7,27 +7,27 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions
 {
-  public class ChooseDuckHouse
+  public class ChooseNaturalField
   {
-    public static void CollectInput(Farm farm, Duck animal)
+    public static void CollectInput(Farm farm, IResource plant)
     {
       // Utils.Clear ();
 
-      foreach (var house in farm.DuckHouses)
+      foreach (var field in farm.NaturalFields)
       {
-        Console.WriteLine($"{farm.DuckHouses.IndexOf(house) + 1}. {house}");
+        Console.WriteLine($"{farm.NaturalFields.IndexOf(field) + 1}. {field}");
 
       }
 
       Console.WriteLine();
 
       // How can I output the type of animal chosen here?
-      Console.WriteLine($"Place the animal where?");
+      Console.WriteLine($"Place the plant where?");
 
       Console.Write("> ");
       int choice = Int32.Parse(Console.ReadLine());
 
-      farm.DuckHouses[(choice - 1)].AddResource(animal);
+      farm.NaturalFields[(choice - 1)].AddResource(plant);
 
       /*
           Couldn't get this to work. Can you?
