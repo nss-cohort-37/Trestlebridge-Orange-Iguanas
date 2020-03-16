@@ -29,9 +29,9 @@ namespace Trestlebridge.Actions
         case 2:
           farm.AddPlowingField(new PlowingField());
           break;
-          // case 3:
-          //   farm.AddNaturalField(new NaturalField());
-          //   break;
+        case 3:
+          farm.AddNaturalField(new NaturalField());
+          break;
         case 4:
           farm.AddChickenHouse(new ChickenHouse());
           break;
