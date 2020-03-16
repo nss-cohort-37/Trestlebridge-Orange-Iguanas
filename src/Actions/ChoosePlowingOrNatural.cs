@@ -22,6 +22,7 @@ namespace Trestlebridge.Actions
         Console.WriteLine($"{PlowedAndNaturalFields.IndexOf(field) + 1}. {field}");
       }
       Console.WriteLine();
+      w
 
       Console.WriteLine($"Place the plant where?");
 
