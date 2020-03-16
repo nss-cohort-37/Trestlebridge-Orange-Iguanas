@@ -2,31 +2,38 @@ using System;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
-namespace Trestlebridge.Models.Animals {
-  public class Goat : IResource, IGrazing, IComposting {
+namespace Trestlebridge.Models.Animals
+{
+  public class Goat : IResource, IGrazing, IComposting
+  {
 
-    private Guid _id = Guid.NewGuid ();
+    private Guid _id = Guid.NewGuid();
     private double _compostProduced = 7.5;
 
-    private string _shortId {
-      get {
-        return this._id.ToString ().Substring (this._id.ToString ().Length - 6);
+    private string _shortId
+    {
+      get
+      {
+        return this._id.ToString().Substring(this._id.ToString().Length - 6);
       }
     }
 
     public double GrassPerDay { get; set; } = 4.1;
-    public string Type { get; } = "Goat";
+    public string Type { get; set; } = "Goat";
 
     // Methods
-    public void Graze () {
-      Console.WriteLine ($"Goat {this._shortId} just ate {this.GrassPerDay}kg of grass");
+    public void Graze()
+    {
+      Console.WriteLine($"Goat {this._shortId} just ate {this.GrassPerDay}kg of grass");
     }
 
-    public double Shoveler () {
+    public double Shoveler()
+    {
       return _compostProduced;
     }
 
-    public override string ToString () {
+    public override string ToString()
+    {
       return $"Goat {this._shortId}. Bahhhhh!";
     }
   }

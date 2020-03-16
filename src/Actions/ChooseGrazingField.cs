@@ -15,7 +15,17 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                //Ternary / if else
+                Console.WriteLine($"{i + 1}. Grazing Field has the following animals:");
+                foreach (var field in farm.GrazingFields)
+                {
+                    var groups = field._animals.GroupBy(animal => animal.Type);
+                    foreach (var individualAnimal in groups)
+                    {
+
+                        Console.WriteLine($"{individualAnimal.Count()} {individualAnimal.Key} ");
+                    }
+                }
             }
 
             Console.WriteLine();
