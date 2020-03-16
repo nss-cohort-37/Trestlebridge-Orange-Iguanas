@@ -23,6 +23,7 @@ namespace Trestlebridge.Actions
 
       Console.Write("> ");
       string choice = Console.ReadLine();
+      Utils.Clear();
 
       switch (Int32.Parse(choice))
       {

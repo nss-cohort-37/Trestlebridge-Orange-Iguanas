@@ -13,7 +13,7 @@ namespace Trestlebridge.Models.Facilities
     private int _capacity = 2;
     private Guid _id = Guid.NewGuid();
 
-    private List<IFeeding> _animals = new List<IFeeding>();
+    public List<IFeeding> _animals = new List<IFeeding>();
 
     public double Capacity
     {
@@ -48,7 +48,7 @@ namespace Trestlebridge.Models.Facilities
     public void AddResource(List<IFeeding> animals)
     {
 
-      animals = _animals;
+      _animals = animals;
 
     }
 
