@@ -7,7 +7,7 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class PlowingField : IFacility<ISeedProducing>
+  public class NaturalField : IFacility<ISeedProducing>
   {
 
     private int _capacity = 4;
@@ -58,7 +58,7 @@ namespace Trestlebridge.Models.Facilities
       // appends before converting to string to make it run faster
       string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-      output.Append($"Plowing field {shortId} has {this._plants.Count} plants\n");
+      output.Append($"Natural field {shortId} has {this._plants.Count} plants\n");
       this._plants.ForEach(a => output.Append($"   {a}\n"));
 
       return output.ToString();

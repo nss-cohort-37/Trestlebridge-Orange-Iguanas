@@ -10,8 +10,8 @@ namespace Trestlebridge.Models
   {
     // has property of a List of type grazing field called GrazingFields 
     public List<GrazingField> GrazingFields { get; } = new List<GrazingField>();
-    // public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
-    // public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
+    public List<PlowingField> PlowingFields { get; } = new List<PlowingField>();
+    public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
     public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
     public List<DuckHouse> DuckHouses { get; } = new List<DuckHouse>();
 
@@ -37,6 +37,16 @@ namespace Trestlebridge.Models
       GrazingFields.Add(field);
       Console.WriteLine("You have added a grazing field!");
     }
+    public void AddNaturalField(NaturalField field)
+    {
+      NaturalFields.Add(field);
+      Console.WriteLine("You have added a Natural field!");
+    }
+    public void AddPlowingField(PlowingField field)
+    {
+      PlowingFields.Add(field);
+      Console.WriteLine("You have added a Plowing field!");
+    }
     public void AddChickenHouse(ChickenHouse house)
     {
       ChickenHouses.Add(house);
@@ -55,6 +65,8 @@ namespace Trestlebridge.Models
       GrazingFields.ForEach(gf => report.Append(gf));
       ChickenHouses.ForEach(ch => report.Append(ch));
       DuckHouses.ForEach(ch => report.Append(ch));
+      NaturalFields.ForEach(ch => report.Append(ch));
+      PlowingFields.ForEach(ch => report.Append(ch));
 
       return report.ToString();
     }

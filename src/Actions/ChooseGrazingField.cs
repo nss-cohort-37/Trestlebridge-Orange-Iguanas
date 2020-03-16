@@ -22,7 +22,6 @@ namespace Trestlebridge.Actions
                     var groups = field._animals.GroupBy(animal => animal.Type);
                     foreach (var individualAnimal in groups)
                     {
-
                         Console.WriteLine($"{individualAnimal.Count()} {individualAnimal.Key} ");
                     }
                 }
