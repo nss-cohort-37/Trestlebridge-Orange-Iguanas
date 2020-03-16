@@ -17,7 +17,7 @@ namespace Trestlebridge.Actions
       {
         foreach (var house in farm.DuckHouses)
         {
-          Console.WriteLine($"{i + 1}. Duck House currently has {house._animals.Count} ducks, ducking around ");
+          Console.WriteLine($"{i + 1}. Duck House currently has {house._animals.Count} {(house._animals.Count == 1 ? "duck" : "ducks") }, ducking around ");
         }
       }
 
