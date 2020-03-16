@@ -7,7 +7,7 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class PlowingField : IFacility<ISeedProducing>
+  public class PlowingField : IFacility<ISeedProducing>, INaturalPlowing
   {
 
     private int _capacity = 4;
