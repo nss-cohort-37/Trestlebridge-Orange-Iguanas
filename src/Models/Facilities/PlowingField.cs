@@ -7,13 +7,15 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class PlowingField : IFacility<ISeedProducing>, INaturalPlowing
+  public class PlowingField : IFacility<IResource>
   {
 
     private int _capacity = 4;
+    public string Type { get; set; } = "Plowing";
+
     private Guid _id = Guid.NewGuid();
 
-    public List<ISeedProducing> _plants = new List<ISeedProducing>();
+    public List<IResource> _plants = new List<IResource>();
 
     public double Capacity
     {
@@ -23,7 +25,7 @@ namespace Trestlebridge.Models.Facilities
       }
     }
 
-    public void AddResource(ISeedProducing plant)
+    public void AddResource(IResource plant)
     {
       // maybe use a while loop
       while (true)
@@ -45,7 +47,7 @@ namespace Trestlebridge.Models.Facilities
 
     }
 
-    public void AddResource(List<ISeedProducing> plants)
+    public void AddResource(List<IResource> plants)
     {
 
       plants = _plants;

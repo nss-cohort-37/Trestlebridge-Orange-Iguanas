@@ -13,13 +13,10 @@ namespace Trestlebridge.Actions
     {
       // Utils.Clear ();
 
-      for (int i = 0; i < farm.ChickenHouses.Count; i++)
+      foreach (var house in farm.ChickenHouses)
       {
-        foreach (var house in farm.ChickenHouses)
-        {
-          Console.WriteLine($"{i + 1}. Chicken House has {house._animals.Count} {(house._animals.Count == 1 ? "chicken" : "chickens") }  squawkin about!");
+        Console.WriteLine($"{farm.ChickenHouses.IndexOf(house) + 1}. {house}");
 
-        }
       }
 
       Console.WriteLine();

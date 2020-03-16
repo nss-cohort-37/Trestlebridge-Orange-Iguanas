@@ -3,7 +3,7 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Interfaces
 {
-  public interface INaturalPlowing
+  public interface INaturalPlowing : IComposting, ISeedProducing
   {
     double Capacity { get; }
 

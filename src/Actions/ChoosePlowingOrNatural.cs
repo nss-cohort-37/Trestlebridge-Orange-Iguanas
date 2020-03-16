@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
@@ -9,25 +10,25 @@ namespace Trestlebridge.Actions
 {
   public class ChoosePlowingOrNatural
   {
-    public static void CollectInput(Farm farm, IComposting plant)
+    public static void CollectInput(Farm farm, IResource plant)
     {
       // Utils.Clear ();
-      for (int i = 0; i < farm.PlowingAndNaturalFields.Count; i++)
+      var PlowedAndNaturalFields = new List<IFacility<IResource>>();
+
+      PlowedAndNaturalFields.AddRange(farm.PlowingFields);
+      PlowedAndNaturalFields.AddRange(farm.NaturalFields);
+      foreach (var field in PlowedAndNaturalFields)
       {
-        foreach (var field in farm.PlowingAndNaturalFields)
-        {
-          Console.WriteLine($"{i+1}. {field}");
-        }
+        Console.WriteLine($"{PlowedAndNaturalFields.IndexOf(field) + 1}. {field}");
       }
       Console.WriteLine();
 
-      // How can I output the type of animal chosen here?
       Console.WriteLine($"Place the plant where?");
 
       Console.Write("> ");
       int choice = Int32.Parse(Console.ReadLine());
 
-      farm.NaturalFields[(choice - 1)].AddResource(plant);
+      PlowedAndNaturalFields[(choice - 1)].AddResource(plant);
 
       /*
           Couldn't get this to work. Can you?

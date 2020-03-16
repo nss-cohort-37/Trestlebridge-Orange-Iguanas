@@ -9,22 +9,14 @@ namespace Trestlebridge.Actions
 {
   public class ChooseNaturalField
   {
-    public static void CollectInput(Farm farm, IComposting plant)
+    public static void CollectInput(Farm farm, IResource plant)
     {
       // Utils.Clear ();
 
-      for (int i = 0; i < farm.NaturalFields.Count; i++)
+      foreach (var field in farm.NaturalFields)
       {
-        //Ternary / if else
-        Console.WriteLine($"{i + 1}. natural Field has the following seeds:");
-        foreach (var field in farm.NaturalFields)
-        {
-          var groups = field._plants.GroupBy(animal => animal.Type);
-          foreach (var individualAnimal in groups)
-          {
-            Console.WriteLine($"{individualAnimal.Count()} {individualAnimal.Key} ");
-          }
-        }
+        Console.WriteLine($"{farm.NaturalFields.IndexOf(field) + 1}. {field}");
+
       }
 
       Console.WriteLine();
