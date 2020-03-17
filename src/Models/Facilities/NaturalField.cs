@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Trestlebridge.Actions;
 using Trestlebridge.Interfaces;
@@ -47,7 +48,7 @@ namespace Trestlebridge.Models.Facilities
                 {
                     Console.WriteLine("Select another facility");
                     break;
-                    // ChooseGrazingField.CollectInput (animal);
+                    // ChooseGrazingField.CollectInput (plants);
                 }
 
             }
@@ -67,8 +68,14 @@ namespace Trestlebridge.Models.Facilities
             // appends before converting to string to make it run faster
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Natural field {shortId} has {this._plants.Count} plants out of {this.Capacity}\n");
-            this._plants.ForEach(a => output.Append($"   {a}\n"));
+            var greenhouse = this._plants.GroupBy(plants => plants.Type);
+            output.Append($"Natural field {shortId} {(this._plants.Count == 0 ? "is empty \n" : "has ")}");
+
+            foreach (var group in greenhouse)
+            {
+                output.Append($"{group.Count()} {group.Key} ");
+            }
+            this._plants.ForEach(a => output.Append($" \n   {a}\n"));
 
             return output.ToString();
         }
