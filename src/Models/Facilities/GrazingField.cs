@@ -10,16 +10,25 @@ namespace Trestlebridge.Models.Facilities
     public class GrazingField : IFacility<IResource>
     {
 
-        private int _capacity = 4;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
         public List<IResource> _animals = new List<IResource>();
+
 
         public double Capacity
         {
             get
             {
                 return _capacity;
+            }
+        }
+
+        public int ResourceCount // Have Adam explain why we could not access _animals.
+        {
+            get
+            {
+                return _animals.Count;
             }
         }
 
@@ -58,7 +67,7 @@ namespace Trestlebridge.Models.Facilities
             // appends before converting to string to make it run faster
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Grazing field {shortId} has {this._animals.Count} animals out of {this.Capacity}\n");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
