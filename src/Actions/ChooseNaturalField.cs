@@ -13,29 +13,40 @@ namespace Trestlebridge.Actions
         {
             // Utils.Clear ();
 
-            foreach (var field in farm.NaturalFields)
+            var AvailableFarms = farm.NaturalFields.Where(field => field.Capacity > field.ResourceCount).ToList();
+
+            if (AvailableFarms.Count == 0)
             {
-                if (field.ResourceCount < field.Capacity)
-                {
-
-                    Console.WriteLine($"{farm.NaturalFields.IndexOf(field) + 1}. {field}");
-                }
-                else
-                {
-
-                }
+                Console.WriteLine("Please add a Facility");
 
             }
+            else
+            {
 
-            Console.WriteLine();
+                foreach (var field in farm.NaturalFields)
+                {
+                    if (field.ResourceCount < field.Capacity)
+                    {
 
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the plant where?");
+                        Console.WriteLine($"{farm.NaturalFields.IndexOf(field) + 1}. {field}");
+                    }
+                    else
+                    {
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+                    }
 
-            farm.NaturalFields[(choice - 1)].AddResource(plant);
+                }
+                Console.WriteLine();
+
+                // How can I output the type of animal chosen here?
+                Console.WriteLine($"Place the plant where?");
+
+                Console.Write("> ");
+                int choice = Int32.Parse(Console.ReadLine());
+
+                farm.NaturalFields[(choice - 1)].AddResource(plant);
+            }
+
 
             /*
                 Couldn't get this to work. Can you?

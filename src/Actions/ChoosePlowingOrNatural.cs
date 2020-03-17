@@ -13,31 +13,42 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm, IResource plant)
         {
             // Utils.Clear ();
-            var PlowedAndNaturalFields = new List<IFacility<IResource>>();
 
-            PlowedAndNaturalFields.AddRange(farm.PlowingFields);
-            PlowedAndNaturalFields.AddRange(farm.NaturalFields);
-            foreach (var field in PlowedAndNaturalFields)
+            var PlowedAndNaturalFields = new List<IFacility<IResource>>();
+            var AvailableFarms = PlowedAndNaturalFields.Where(field => field.Capacity > field.ResourceCount).ToList();
+
+            if (AvailableFarms.Count == 0)
+            {
+                Console.WriteLine("Please add a Facility");
+
+            }
+            else
             {
 
-                if (field.ResourceCount < field.Capacity)
-                {
-                    Console.WriteLine($"{PlowedAndNaturalFields.IndexOf(field) + 1}. {field}");
-                }
-                else
+                PlowedAndNaturalFields.AddRange(farm.PlowingFields);
+                PlowedAndNaturalFields.AddRange(farm.NaturalFields);
+                foreach (var field in PlowedAndNaturalFields)
                 {
 
+                    if (field.ResourceCount < field.Capacity)
+                    {
+                        Console.WriteLine($"{PlowedAndNaturalFields.IndexOf(field) + 1}. {field}");
+                    }
+                    else
+                    {
+
+                    }
                 }
+                Console.WriteLine();
+
+
+                Console.WriteLine($"Place the plant where?");
+
+                Console.Write("> ");
+                int choice = Int32.Parse(Console.ReadLine());
+
+                PlowedAndNaturalFields[(choice - 1)].AddResource(plant);
             }
-            Console.WriteLine();
-
-
-            Console.WriteLine($"Place the plant where?");
-
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
-
-            PlowedAndNaturalFields[(choice - 1)].AddResource(plant);
 
             /*
                 Couldn't get this to work. Can you?
