@@ -12,29 +12,40 @@ namespace Trestlebridge.Actions
         public static void CollectInput(Farm farm, Duck animal)
         {
             // Utils.Clear ();
+            var AvailableFarms = farm.DuckHouses.Where(houses => houses.Capacity > houses.ResourceCount).ToList();
 
-            foreach (var house in farm.DuckHouses)
+            if (AvailableFarms.Count == 0)
             {
-                if (house.ResourceCount < house.Capacity)
-                {
-                    Console.WriteLine($"{farm.DuckHouses.IndexOf(house) + 1}. {house}");
-                }
-                else
-                {
-
-                }
+                Console.WriteLine("Please add a Facility");
 
             }
+            else
+            {
 
-            Console.WriteLine();
 
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the animal where?");
+                foreach (var house in farm.DuckHouses)
+                {
+                    if (house.ResourceCount < house.Capacity)
+                    {
+                        Console.WriteLine($"{farm.DuckHouses.IndexOf(house) + 1}. {house}");
+                    }
+                    else
+                    {
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+                    }
 
-            farm.DuckHouses[(choice - 1)].AddResource(animal);
+                }
+                Console.WriteLine();
+
+                // How can I output the type of animal chosen here?
+                Console.WriteLine($"Place the animal where?");
+
+                Console.Write("> ");
+                int choice = Int32.Parse(Console.ReadLine());
+
+                farm.DuckHouses[(choice - 1)].AddResource(animal);
+            }
+
 
             /*
                 Couldn't get this to work. Can you?
