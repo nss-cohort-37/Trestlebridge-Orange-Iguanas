@@ -69,15 +69,15 @@ namespace Trestlebridge.Models.Facilities
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
             var zoo = this._animals.GroupBy(animal => animal.Type);
-            output.Append($"Grazing field {shortId} {(this._animals.Count == 0 ? "is empty" : "has")} ");
+            output.Append($"Grazing field {shortId} {(this._animals.Count == 0 ? "is empty \n" : "has")}");
 
             foreach (var group in zoo)
             {
-                output.Append($"{group.Count()} {group.Key} ");
+                output.Append($" {group.Count()} {group.Key} ");
             }
 
 
-            this._animals.ForEach(a => output.Append($" \n{a}\n"));
+            this._animals.ForEach(a => output.Append($" \n   {a}\n"));
 
             return output.ToString();
         }
