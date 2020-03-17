@@ -69,7 +69,7 @@ namespace Trestlebridge.Models.Facilities
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
             var greenhouse = this._plants.GroupBy(plants => plants.Type);
-            output.Append($"Natural Field {shortId} has ");
+            output.Append($"Natural Field {shortId} {(this._plants.Count == 0 ? "is empty" : "has")}");
 
             foreach (var group in greenhouse)
             {
