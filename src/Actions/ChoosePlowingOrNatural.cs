@@ -15,18 +15,17 @@ namespace Trestlebridge.Actions
             // Utils.Clear ();
 
             var PlowedAndNaturalFields = new List<IFacility<IResource>>();
+            PlowedAndNaturalFields.AddRange(farm.PlowingFields);
+            PlowedAndNaturalFields.AddRange(farm.NaturalFields);
             var AvailableFarms = PlowedAndNaturalFields.Where(field => field.Capacity > field.ResourceCount).ToList();
 
             if (AvailableFarms.Count == 0)
             {
                 Console.WriteLine("Please add a Facility");
-
             }
             else
             {
 
-                PlowedAndNaturalFields.AddRange(farm.PlowingFields);
-                PlowedAndNaturalFields.AddRange(farm.NaturalFields);
                 foreach (var field in PlowedAndNaturalFields)
                 {
 
