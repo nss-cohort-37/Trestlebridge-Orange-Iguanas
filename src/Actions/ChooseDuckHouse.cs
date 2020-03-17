@@ -7,34 +7,41 @@ using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions
 {
-  public class ChooseDuckHouse
-  {
-    public static void CollectInput(Farm farm, Duck animal)
+    public class ChooseDuckHouse
     {
-      // Utils.Clear ();
+        public static void CollectInput(Farm farm, Duck animal)
+        {
+            // Utils.Clear ();
 
-      foreach (var house in farm.DuckHouses)
-      {
-        Console.WriteLine($"{farm.DuckHouses.IndexOf(house) + 1}. {house}");
+            foreach (var house in farm.DuckHouses)
+            {
+                if (house.ResourceCount < house.Capacity)
+                {
+                    Console.WriteLine($"{farm.DuckHouses.IndexOf(house) + 1}. {house}");
+                }
+                else
+                {
 
-      }
+                }
 
-      Console.WriteLine();
+            }
 
-      // How can I output the type of animal chosen here?
-      Console.WriteLine($"Place the animal where?");
+            Console.WriteLine();
 
-      Console.Write("> ");
-      int choice = Int32.Parse(Console.ReadLine());
+            // How can I output the type of animal chosen here?
+            Console.WriteLine($"Place the animal where?");
 
-      farm.DuckHouses[(choice - 1)].AddResource(animal);
+            Console.Write("> ");
+            int choice = Int32.Parse(Console.ReadLine());
 
-      /*
-          Couldn't get this to work. Can you?
-          Stretch goal. Only if the app is fully functional.
-       */
-      // farm.PurchaseResource<IGrazing>(animal, choice);
+            farm.DuckHouses[(choice - 1)].AddResource(animal);
 
+            /*
+                Couldn't get this to work. Can you?
+                Stretch goal. Only if the app is fully functional.
+             */
+            // farm.PurchaseResource<IGrazing>(animal, choice);
+
+        }
     }
-  }
 }

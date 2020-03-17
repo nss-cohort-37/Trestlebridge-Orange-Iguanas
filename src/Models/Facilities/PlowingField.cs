@@ -25,6 +25,14 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public int ResourceCount
+        {
+            get
+            {
+                return _plants.Count;
+            }
+        }
+
         public void AddResource(IResource plant)
         {
             // maybe use a while loop

@@ -10,16 +10,25 @@ namespace Trestlebridge.Models.Facilities
     public class GrazingField : IFacility<IResource>
     {
 
-        private int _capacity = 4;
+        private int _capacity = 2;
         private Guid _id = Guid.NewGuid();
 
         public List<IResource> _animals = new List<IResource>();
+
 
         public double Capacity
         {
             get
             {
                 return _capacity;
+            }
+        }
+
+        public int ResourceCount // Have Adam explain why we could not access _animals.
+        {
+            get
+            {
+                return _animals.Count;
             }
         }
 

@@ -15,8 +15,14 @@ namespace Trestlebridge.Actions
 
             foreach (var field in farm.GrazingFields)
             {
-                Console.WriteLine($"{farm.GrazingFields.IndexOf(field) + 1}. {field}");
+                if (field.ResourceCount < field.Capacity)
+                {
+                    Console.WriteLine($"{farm.GrazingFields.IndexOf(field) + 1}. {field}");
+                }
+                else
+                {
 
+                }
             }
             Console.WriteLine();
 

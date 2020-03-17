@@ -23,6 +23,14 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public int ResourceCount
+        {
+            get
+            {
+                return _animals.Count;
+            }
+        }
+
         public void AddResource(IResource animal)
         {
             // maybe use a while loop
