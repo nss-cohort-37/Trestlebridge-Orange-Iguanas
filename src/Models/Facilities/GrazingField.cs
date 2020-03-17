@@ -58,7 +58,7 @@ namespace Trestlebridge.Models.Facilities
             // appends before converting to string to make it run faster
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Grazing field {shortId} has {this._animals.Count} animals out of {this.Capacity}\n");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
